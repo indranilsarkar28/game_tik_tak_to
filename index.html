@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stone Paper Scissors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f9;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-image: url(https://eieio.games/images/talk-paper-scissors/title-image.png);
+        background-size: 500px ;
+        background-repeat:no-repeat;
+        background-position: center top;
+
+    }
+    h1 {
+      margin: 20px;
+    }
+    .buttons {
+      margin: 30px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .container {
+        
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stone ✊ Paper ✋ Scissors ✌️</h1>
+        <div class="buttonsn">
+            <button onclick="play('stone')">Stone ✊</button>
+            <button onclick="play('paper')">Paper ✋</button>
+            <button onclick="play('scissors')">Scissors ✌️</button>
+        </div>
+        <div id="result"></div>
+    </div>
+        
+        <script>
+    function play(playerChoice) {
+      const choices = ['stone', 'paper', 'scissors'];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+      let result = `You chose: ${playerChoice} <br> Computer chose: ${computerChoice}<br>`;
+
+      if (playerChoice === computerChoice) {
+        result += "It's a Draw!";
+      } else if (
+        (playerChoice === 'stone' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'stone') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result += "🎉 You Win!";
+      } else {
+        result += "😢 You Lose!";
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
